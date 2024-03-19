@@ -1,0 +1,35 @@
+.add-room-container {
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 50%;
+}
+.create-room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border: solid #e24ada 1px;
+  border-radius: 15px;
+  width: 350px;
+  height: 200px;
+  padding: 20px;
+}
+
+.create-room button {
+  background-color: #e24ada;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  color: aliceblue;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgb(46, 16, 48);
+}
+.create-room button:hover {
+  background-color: #b11aa9;
+}
+.custom-select {
+  color: black; 
+}

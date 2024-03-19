@@ -1,0 +1,39 @@
+.home-page{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.home-page button{ 
+    background-color: #e24ada;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 70%;
+    border:none;
+    color: aliceblue;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgb(46, 16, 48);
+    position: relative;
+}
+.home-page button:hover{
+    background-color: #b11aa9;
+}
+.home-page button::after{
+    content: "Click here to add a room";
+    width: 10rem;
+    position: absolute;
+    top: calc(100% + 5px); 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(25, 24, 24, 0.8);
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+.home-page button:hover::after{
+    opacity: 1;
+}
