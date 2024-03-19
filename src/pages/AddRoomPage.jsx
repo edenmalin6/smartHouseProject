@@ -38,7 +38,6 @@ const AddRoomPage = () => {
       <h1>Smart House</h1>
       <form className="create-room" onSubmit={handleCreateRoom}>
         <Select
-          // value={selectedOption}//
           options={options}
           onChange={handleSelect}
           className="custom-select"
