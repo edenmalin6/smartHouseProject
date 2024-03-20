@@ -1,18 +1,20 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
-import rooms from "../data/rooms";
+import { getRoom } from "../services/roomService";
+import { useParams } from "react-router-dom";
+import { storageService } from "../services/storageService";
 
 const RoomPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams({ name: " " });
-  const name = searchParams.get("")
+  const { roomName } = useParams();
+  getRoom(roomName);
+  console.log(getRoom(roomName));
   return (
     <div className="room-page">
-      <h1></h1>
-      <input
-        type="name"
-        value={name}
-        onChange={(e) => setSearchParams({ name: e.target.value })}
-      ></input>
+      <h1>Smart House</h1>
+      <div className="my-room">
+      <span>Room Name: {roomName} </span>
+      <span>Room Type: {getRoom(roomName).type} </span>
+      <button className="add-product"></button>
+      </div>
     </div>
   );
 };

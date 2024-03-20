@@ -1,6 +1,6 @@
 import { storageService } from "./storageService";
 
-const getRoom = (roomName) => {
+ export const getRoom = (roomName) => {
   const roomsList = storageService.getRooms();
   return roomsList.find((room) => room.name === roomName);
 };

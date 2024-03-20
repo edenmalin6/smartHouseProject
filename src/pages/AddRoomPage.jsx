@@ -6,7 +6,7 @@ import { storageService } from "../services/storageService";
 const AddRoomPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [roomName, setRoomName] = useState("");
-  const [roomColor, setRoomColor] = useState("#ffffff");
+  const [roomColor, setRoomColor] = useState("#7a7a6e");
 
   const options = [
     { value: "bedroom", label: "Bedroom" },
@@ -30,7 +30,7 @@ const AddRoomPage = () => {
     console.log(storageService.getRooms());
     setSelectedOption("");
     setRoomName("");
-    setRoomColor("#ffffff");
+    setRoomColor("#7a7a6e");
   };
 
   return (
