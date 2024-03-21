@@ -1,3 +1,4 @@
+//  rooms is used as an example
 const rooms = [
   {
     type: "bedroom",
