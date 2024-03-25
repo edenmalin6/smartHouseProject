@@ -15,8 +15,8 @@
   gap: 15px;
   border: solid 1px #e24ada;
   border-radius: 3%;
-  width: 350px;
-  height: 200px;
+  width: 400px;
+  height: 250px;
   padding: 20px;
 }
 .add-device-btn {
@@ -31,4 +31,19 @@
 }
 .add-device-btn:hover {
   background-color: #b11aa9;
+}
+.render-device-container {
+  display: flex;
+  gap: 5px;
+}
+.render-device {
+  padding: 5px;
+  margin-top: 5px;
+  text-align: center;
+  height: 65px;
+  width: 65px;
+  border-radius: 70%;
+  border: none;
+  color: aliceblue;
+  cursor: pointer;
 }

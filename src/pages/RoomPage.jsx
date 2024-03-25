@@ -1,25 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EditDevice } from "../components/EditDevice";
-import { getRoom } from "../services/roomService";
+import { getRoom, toggleDevice, enableDevice } from "../services/roomService";
 import { useParams } from "react-router-dom";
 
 
 const RoomPage = () => {
-  const [openEditDevice, setOpenEditDevice] = useState(false);
+  const [openEditDevice, setOpenEditDevice] = useState(null);
   const { roomName } = useParams();
-  getRoom(roomName);
+  const [devices, setDevices] = useState([]);
+  
 
-  const editDeviceBtn = (e) => {
+  useEffect(()=>{
+    const fetchedDevices = getRoom(roomName).devices
+    setDevices(fetchedDevices)
+   
+  },[])  
+
+  useEffect(()=>{
+    enableDevice({roomName})
+  },[])
+  
+  const editDeviceBtn = (e, roomType) => {
     e.preventDefault();
-    //get the room type ?
-    setOpenEditDevice(true);
+    setOpenEditDevice(roomType);
   };
 
-  return (openEditDevice ? (
-    <div className="edit-device-container">
-      <EditDevice roomName={roomName} setOpenEditDevice={setOpenEditDevice} />
-    </div>
-  ) : (
+
+  const renderDevices = () => {
+    return devices.map((device, index) => {
+      const backgroundColor = device.enabled ? "green" : "red"
+      const handleToggle = () => {
+        toggleDevice({roomName, id: device.id})
+       
+          setDevices(getRoom(roomName).devices)  
+        
+      }
+      return (
+        <div className="render-device" key={index} onClick={handleToggle} style={{backgroundColor}}>
+          {device.type}
+        </div>
+      );
+    });
+  };
+  return (
     <div className="room-page">
       <h1>Smart House</h1>
       <div className="my-room">
@@ -31,9 +54,17 @@ const RoomPage = () => {
         >
           Add Device
         </button>
+        {openEditDevice && (
+          <EditDevice
+            roomName={roomName}
+            setOpenEditDevice={setOpenEditDevice}
+            setDevices={setDevices}
+          />
+        )}
+         {devices && <div className="render-device-container">{renderDevices()}</div>}
       </div>
     </div>
-  ));
+  );
 };
 
 export default RoomPage;

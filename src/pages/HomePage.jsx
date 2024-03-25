@@ -31,6 +31,7 @@ const HomePage = () => {
       <button className="add-room-btn" onClick={() => navigate("/add-room")}>
         +
       </button>
+      {/* {rooms && <div>{renderRooms()}</div>} */} 
       <div>{renderRooms()}</div>
     </div>
   );

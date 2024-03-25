@@ -1,0 +1,31 @@
+.edit-device-container {
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 5px;
+}
+.edit-device-container form {
+  border-radius: 5px;
+  padding: 2rem;
+  background-color: rgb(65, 62, 62);
+  width: 18rem;
+  height: 10rem;
+}
+.edit-btn {
+   margin-top: 15px;
+   margin-right: 2px;
+  background-color: #e24ada;
+  padding: 10px;
+  width: 110px;
+  border-radius: 20px;
+  border: none;
+  color: aliceblue;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgb(46, 16, 48);
+}
+.edit-btn:hover{
+    background-color: #b11aa9;
+}

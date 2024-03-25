@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import Select from "react-select";
-import { addDevice } from '../services/roomService';
+import { addDevice, getRoom } from "../services/roomService";
 
-
-
-export const EditDevice = ({roomName, setOpenEditDevice}) => {
-  // const [devices, setDevices] = useState()
+export const EditDevice = ({ roomName, setOpenEditDevice, setDevices }) => {
   const [selectedOption, setSelectedOption] = useState("");
-  
+
   const options = [
     { value: "ac", label: "Ac" },
     { value: "water heater", label: "Water Heater" },
@@ -22,23 +19,30 @@ export const EditDevice = ({roomName, setOpenEditDevice}) => {
   const handleSave = (e) => {
     e.preventDefault();
     try {
-      addDevice({ deviceType: selectedOption, roomName });
-    } catch (e) {
-      //id rather throw the error type cuz its less annoying
-      throw alert(error.message);
+      addDevice({ roomName, deviceType: selectedOption }); 
+    } catch (error) {
+      alert(error.message);
     }
-
-    setOpenEditDevice(false);
+    setDevices(getRoom(roomName).devices)
+    handleCancel();
+  };
+  const handleCancel = () => {
+    setOpenEditDevice(null);
   };
 
   return (
-    <form onSubmit={handleSave}>
-    <Select
-      options={options}
-      onChange={handleSelect}
-      className="custom-select"
-    />
-    <button>Save</button>
-  </form>
-  )
-}
+    <div className="edit-device-container">
+      <form onSubmit={handleSave}>
+        <Select
+          options={options}
+          onChange={handleSelect}
+          className="custom-select"
+        />
+        <button className="edit-btn">Save</button>
+        <button className="edit-btn" onClick={handleCancel}>
+          Cancel
+        </button>
+      </form>
+    </div>
+  );
+};

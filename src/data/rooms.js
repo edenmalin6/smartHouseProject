@@ -6,6 +6,7 @@ const rooms = [
     color: "",
     devices: [
       {
+        id: "111",
         type: "ac",
         enabled: false,
       },
