@@ -96,6 +96,7 @@ export const enableDevice = ({ roomName }) => {
     (findRoom) => findRoom.name === roomName
   );
   roomsList[roomIndex] = room;
+  
 
   storageService.setRooms(roomsList);
 };

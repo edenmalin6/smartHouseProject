@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { addRoom } from "../services/roomService";
 import { storageService } from "../services/storageService";
+import axios from "axios";
 
 const AddRoomPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -19,9 +20,11 @@ const AddRoomPage = () => {
     setSelectedOption(option.value);
   };
   
-  const handleCreateRoom = (e) => {
+  const handleCreateRoom = async (e) => {
     e.preventDefault();
+    let response;
     try{
+     response = await axios.post("http://localhost:9000/api/room")
       addRoom({ type: selectedOption, name: roomName, color: roomColor });
     }
     catch(error){

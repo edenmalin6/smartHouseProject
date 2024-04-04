@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
+// import { storageService } from "../services/storageService";
 
 
 export const Header = () => {
+  const {user, logout} = useAuth()
+
     const getNavLinkClassName = (props) => {
         if (props.isActive) return "active"
         return
@@ -9,7 +13,7 @@ export const Header = () => {
     return (
       <header>
         <h2 className="logo">Smart House</h2>
-      <nav>
+        <nav>
         <ul>
           <li>
             <NavLink className={getNavLinkClassName} to="/">
@@ -26,8 +30,14 @@ export const Header = () => {
               My Room
             </NavLink>
           </li>
+          <li>
+            <button className="btn-logout" onClick={() => logout()}>
+             Logout
+            </button>
+          </li>
         </ul>
       </nav>
+     
       </header>
     );
   };

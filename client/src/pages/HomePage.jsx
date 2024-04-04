@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { storageService } from "../services/storageService";
-import { useRooms } from "../context/ContextProvider";
+import axios from "axios";
+
 
 const HomePage = () => { 
-  const {rooms, setRooms } = useRooms()
+  const {id} = useParams()
+  const [rooms, setRooms] = useState(storageService.getRooms());
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   axios.get(`http://localhost:9000/home/:${id}`)
+  //   .then(res => console.log(res.data))
+  //   .catch(err => console.log(err))
+  // }, []);
 
   useEffect(()=>{
     const fetchedRooms = storageService.getRooms()

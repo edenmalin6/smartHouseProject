@@ -1,4 +1,6 @@
 @import "./global.css";
+@import "./Login.css";
+@import "./Register.css";
 @import "./Header.css";
 @import "./Home.css";
 @import "./AddRoom.css";

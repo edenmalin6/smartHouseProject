@@ -1,5 +1,5 @@
 const ROOMS_KEY = "rooms";
-
+const LOGGED_IN_USER = "loggedInUser"
 export const storageService = {
   getRooms() {
     const rooms = localStorage.getItem(ROOMS_KEY);
@@ -8,4 +8,7 @@ export const storageService = {
   setRooms(rooms) {
     localStorage.setItem(ROOMS_KEY, JSON.stringify(rooms));
   },
+  clearAll(){
+    sessionStorage.removeItem(LOGGED_IN_USER)
+  }
 };

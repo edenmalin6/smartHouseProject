@@ -28,6 +28,17 @@ nav ul li a {
 nav ul li .active {
   color: #e24ada;
 }
-nav ul li .active:hover{
-   color: #b11aa9;
+nav ul li .active:hover {
+  color: #b11aa9;
+}
+.btn-logout {
+  color: white;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 10px 15px;
+}
+.btn-logout:hover {
+  color: #b11aa9;
 }
